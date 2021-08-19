@@ -164,7 +164,7 @@ void del_mid()
     else
     {
         int n=1,pos2;
-        printf("ENter position to delete : ");
+        printf("Enter position to delete : ");
         scanf("%d",&pos2);
         t1=head;
         t2=head;
