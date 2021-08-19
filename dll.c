@@ -96,6 +96,18 @@ void insert_mid()
      t2->next->prev=t1;
 }
 
+void nodecount()
+{
+    int nc;
+    t1=head;
+    while(t1!=0)
+    {
+        nc++;
+        t1=t1->next;
+    }
+    printf("\nThe number of nodes is : %d",nc);
+}
+
 void display()
 {
     t1=head;
@@ -104,6 +116,7 @@ void display()
         printf("%d -> ",t1->data);
         t1=t1->next;
     }
+    nodecount();
 }
 
 void del_beg()
@@ -146,36 +159,58 @@ void del_mid()
 
 int main()
 {
-    int ch2=1,ch3;
+    int ch2=1,ch3,x,p;
     while(ch2==1)
     {
-        printf("\n1.Creation of LL\n2.Display\n3.Insert at beg\n4.Insert at end\n5.Insert at middle\n6.Del beg\n7.Del mid\n8.del end\n");
-        printf("Enter your choice: ");
+        printf("\n1.Creation of Linked List \n2.Insertion \n3.Deletion \n4.Display");
+        printf("\nEnter your choice: ");
         scanf("%d",&ch3);
         switch(ch3)
         {
             case 1 : create();
                      break;
 
-            case 2 : display();
-                     break;
+            case 2 : printf("------Insertion-------");
+                     printf("\n1.Insertion at the beginning \n2.Insertion at the end \n3.Insertion at desired location\n");
+                     printf("Enter your choice (1-3): ");
+                     scanf("%d",&x);
+                     switch(x)
+                     {
+                        case 1 : insert_beg();
+                                  break;
 
-            case 3 : insert_beg();
-                     break;
+                        case 2 : insert_end();
+                                 break;
 
-            case 4 : insert_end();
-                     break;
+                        case 3 : insert_mid();
+                                 break;
 
-            case 5 : insert_mid();
+                        default : printf("Invalid Choice !\n");
+                                  break;
+                     }
                      break;
+                     
+            case 3 :  printf("------Deletion------");
+                      printf("\n1.Deletion at beginning \n2.Deletion at the end \n3.Deletion at desired location\n");
+                      printf("Enter your choice (1-3) : ");
+                      scanf("%d",&p);
+                      switch (p)
+                      {
+                      case 1 : del_beg();
+                               break;
+                      
+                      case 2 : del_end();
+                               break;
 
-            case 6 : del_beg();
-                     break;
-         
-            case 7 : del_mid();
-                     break;
+                      case 3 : del_mid();
+                               break;
+                
+                      default : printf("Invalid Choice !");
+                                break;
+                      }
+                      break;
 
-            case 8 : del_end();
+            case 4 : display();
                      break;
 
             default : printf("Invalid choice ");
